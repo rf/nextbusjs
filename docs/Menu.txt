@@ -50,8 +50,8 @@ Format: 1.5
 # --------------------------------------------------------------------------
 
 
-File: geohash  (/Users/rfranknj/code/nextbusjs/lib/geohash.js)
 File: nextbus  (/Users/rfranknj/code/nextbusjs/lib/index.js)
+File: geohash  (/Users/rfranknj/code/nextbusjs/lib/geohash.js)
 
 Group: Index  {
 
