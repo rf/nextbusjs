@@ -1,6 +1,5 @@
 nextbus.js
 ==========
 
-A nice interface to nextbus in javascript!
-
-
+A reasonable interface to nextbus written in Javascript, targetting both
+Appcelerator Titanium and Node.JS.
