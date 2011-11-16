@@ -1,0 +1,15 @@
+{
+  "author": "Russell Frank <russ.frank@rutgers.edu>",
+  "name": "nextbus",
+  "description": "nextbus api wrapper",
+  "main"    : "lib/index",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~v0.4.10"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
