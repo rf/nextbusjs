@@ -4,6 +4,7 @@ nextbus.js
 A reasonable interface to nextbus written in Javascript, targetting both
 Appcelerator Titanium and Node.JS.
 
+    var nextbus = require('nextbusjs').client;
     var rutgers = nextbus();
     rutgers.cacheAgency('rutgers', function (err) {
        if (err) {
