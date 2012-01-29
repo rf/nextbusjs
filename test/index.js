@@ -10,20 +10,29 @@ var vows       = require('vows'),
 
 var suite = vows.describe('nextbus js general');
 
+var isNumStrArray = function (ar) {
+   assert.isArray(ar);
+   ar.forEach(function (val) {
+      assert.match(val, /[0-9]*/);
+   });
+};
+
 var isValidPredictions = function (err, data) {
    var item;
+ //  console.log(JSON.stringify(data, false, 2));
    if (err) {
       throw err;
    }
-   if (data !== null) {
+   if (data) {
       assert.isArray(data);
       for (item in data.predictions) {
          if (data.hasOwnProperty(item)) {
-            if (data[item] !== null) {
-               assert.isArray(data[item]);
-               data[item].forEach(function (val) {
-                  assert.isNumber(Number(val));
-               });
+            if (data[item] && data[item].minutes) {
+               isNumStrArray(data[item].seconds);
+               isNumStrArray(data[item].minutes);
+            }
+            else {
+               isNumStrArray(data[item]);
             }
          }
       }
@@ -79,6 +88,11 @@ suite.addBatch({
          'wknd1'    : {
             topic    : function () { rutgers.routePredict('wknd1', null, this.callback); },
             'valid return value' : isValidPredictions
+         },
+
+         'wknd2, both mins & seconds'    : {
+            topic: function () { rutgers.routePredict('wknd2', null, this.callback, 'both'); },
+            'valid return value': isValidPredictions
          }
       },
 
@@ -121,9 +135,9 @@ suite.addBatch({
             'valid return value' : isValidPredictions
          },
 
-         'Livingston Plaza' : {
+         'Livingston Plaza, both mins & seconds' : {
             topic    : function () {
-               rutgers.stopPredict('Livingston Plaza', null, this.callback);
+               rutgers.stopPredict('Livingston Plaza', null, this.callback, 'both');
             },
             'valid return value' : isValidPredictions
          }
