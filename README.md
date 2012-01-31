@@ -37,7 +37,7 @@ Appcelerator Titanium and Node.JS.
                  predictions: [ '5', '16', '29', '40', '52' ] },
                { title: 'Rutgers Student Center',
                  predictions: [ '10', '21', '34', '45', '57' ] } ]
-          });
+          }, 'minutes');
           rutgers.stopPredict('Hill Center', null, function (err, data) {
              // data will contain:
              [ { direction: 'To Busch Student Center',
@@ -70,7 +70,7 @@ Appcelerator Titanium and Node.JS.
                { direction: 'To Rutgers Student Center',
                  title: 'Weekend 2',
                  predictions: null } ]
-          });
+          }, 'minutes');
           var nearest = rutgers.closestStops(40.40264, -74.3840120);
           //{ 'Rutgers Student Center': 7,
           //  'Student Activities Center': 6,

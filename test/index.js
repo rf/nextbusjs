@@ -41,6 +41,12 @@ var isValidPredictions = function (err, data) {
    }
 };
 
+var isValidVehicleLocations = function (err, data) {
+   if (err) {
+      throw err;
+   }
+};
+
 suite.addBatch({
    'nextbusjs with no agency cache ' : {
       topic    : function () { invalidnb.routePredict('bus', null, this.callback); },
