@@ -4,6 +4,7 @@ nextbus.js
 A reasonable interface to nextbus written in Javascript, targeting both
 Appcelerator Titanium and Node.JS.
 
+````javascript
     var rutgers = require('nextbusjs').Client();
     rutgers.cacheAgency('rutgers', function (err) {
        if (err) {
@@ -77,6 +78,7 @@ Appcelerator Titanium and Node.JS.
           //  'Scott Hall': 5 }
        }
     });
+````
 
 Documentation
 =============
