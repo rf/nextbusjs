@@ -19,7 +19,7 @@ var isNumStrArray = function (ar) {
 
 var isValidPredictions = function (err, data) {
    var item;
- //  console.log(JSON.stringify(data, false, 2));
+   //console.log(JSON.stringify(data, false, 2));
    if (err) {
       throw err;
    }
@@ -98,6 +98,11 @@ suite.addBatch({
 
          'wknd2, both mins & seconds'    : {
             topic: function () { rutgers.routePredict('wknd2', null, this.callback, 'both'); },
+            'valid return value': isValidPredictions
+         }, 
+
+         'a, both mins & seconds'    : {
+            topic: function () { rutgers.routePredict('a', null, this.callback, 'both'); },
             'valid return value': isValidPredictions
          }
       },

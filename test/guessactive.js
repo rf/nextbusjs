@@ -41,7 +41,7 @@ suite.addBatch({
       },
       'guessActive' : {
          topic : function () { rutgers.guessActive(null, this.callback); },
-         'doesnt break' : function (err, data) {
+         'valid return' : function (err, data) {
             assert.isNull(err);
             assert.isObject(data);
             assert.isArray(data.routes);
