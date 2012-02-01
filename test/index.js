@@ -57,7 +57,7 @@ var isValidVehicleLocations = function (err, data) {
       assert.match(vehicle.direction, /[\w]*/);
       assert.match(vehicle.lat, /-?[0-9]*\.[0-9]*/);
       assert.match(vehicle.lon, /-?[0-9]*\.[0-9]*/);
-      assert.match(vehicle.secsSince, /[0-9]*/);
+      assert.match(vehicle.since, /[0-9]*/);
       assert.isBool(vehicle.predictable);
       assert.match(vehicle.heading, /[0-9]*/);
       assert.match(vehicle.speed, /-?[0-9]*\.[0-9]*/);
