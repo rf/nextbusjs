@@ -40,7 +40,7 @@ suite.addBatch({
          assert.isObject(topic);
       },
       'guessActive' : {
-         topic : function () { rutgers.guessActive(null, this.callback); },
+         topic : function () { rutgers.guessActive(this.callback); },
          'valid return' : function (err, data) {
             assert.isNull(err);
             assert.isObject(data);
