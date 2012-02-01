@@ -54,7 +54,7 @@ suite.addBatch({
                assert.isString(val.geoHash);
                assert.isString(val.title);
             });
-            //console.dir(data);
+            console.dir(data);
          }
       }
    }
