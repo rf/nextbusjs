@@ -49,18 +49,20 @@ var isValidVehicleLocations = function (err, data) {
 
    // data should be {routeTag: [{id: 4192, direction: 'f_outbound', lat:, lon:, since:, predictable:, heading:, speed:}]}
    
-   console.dir(data);
+ //  console.dir(data);
 
    assert.isObject(data);
-   _(data).each(function (route, vehicle) {
-      assert.match(vehicle.id, /[0-9]*/);
-      assert.match(vehicle.direction, /[\w]*/);
-      assert.match(vehicle.lat, /-?[0-9]*\.[0-9]*/);
-      assert.match(vehicle.lon, /-?[0-9]*\.[0-9]*/);
-      assert.match(vehicle.since, /[0-9]*/);
-      assert.isBool(vehicle.predictable);
-      assert.match(vehicle.heading, /[0-9]*/);
-      assert.match(vehicle.speed, /-?[0-9]*\.[0-9]*/);
+   _(data).each(function (vehicles, route) {
+      _(vehicles).forEach(function (vehicle) {
+         assert.match(vehicle.id, /[0-9]*/);
+         assert.match(vehicle.direction, /[\w]*/);
+         assert.match(vehicle.lat, /-?[0-9]*\.[0-9]*/);
+         assert.match(vehicle.lon, /-?[0-9]*\.[0-9]*/);
+         assert.match(vehicle.since, /[0-9]*/);
+         assert.isBoolean(vehicle.predictable);
+         assert.match(vehicle.heading, /[0-9]*/);
+         assert.match(vehicle.speed, /-?[0-9]*\.[0-9]*/);
+      });
    });
 };
 
