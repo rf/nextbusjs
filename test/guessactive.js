@@ -33,6 +33,24 @@ var isValidPredictions = function (err, data) {
    }
 };
 
+function isValidRouteList (err, data) {
+   assert.isArray(data);
+   data.forEach(function (val) {
+      assert.isString(val.tag);
+      assert.isString(val.title);
+   });
+   console.dir(data);
+}
+
+function isValidStopList (err,data) {
+   assert.isArray(data);
+   data.forEach(function (val) {
+      assert.isString(val.geoHash);
+      assert.isString(val.title);
+   });
+   console.dir(data);
+}
+
 suite.addBatch({
    'caching agency' : {
       topic    : function () { rutgers.cacheAgency('rutgers', this.callback); },
@@ -56,6 +74,14 @@ suite.addBatch({
             });
             console.dir(data);
          }
+      },
+      'getRoutes': {
+         topic: function() { this.callback(null, rutgers.getRoutes()); },
+         'valid return': isValidRouteList
+      },
+      'getStops': {
+         topic: function () { this.callback(null, rutgers.getStops()); },
+         'valid return': isValidStopList
       }
    }
 });

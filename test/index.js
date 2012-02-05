@@ -18,6 +18,25 @@ var isNumStrArray = function (ar) {
    });
 };
 
+
+function isValidRouteList (err, data) {
+   assert.isArray(data);
+   data.forEach(function (val) {
+      assert.isString(val.tag);
+      assert.isString(val.title);
+   });
+   //console.dir(data);
+}
+
+function isValidStopList (err,data) {
+   assert.isArray(data);
+   data.forEach(function (val) {
+      assert.isString(val.geoHash);
+      assert.isString(val.title);
+   });
+   //console.dir(data);
+}
+
 var isValidPredictions = function (err, data) {
    var item;
    //console.log(JSON.stringify(data, false, 2));
@@ -124,6 +143,14 @@ suite.addBatch({
             topic: function () { rutgers.routePredict('a', null, this.callback, 'both'); },
             'valid return value': isValidPredictions
          }
+      },
+      'getRoutes': {
+         topic: function() { return rutgers.getRoutes(); },
+         'valid return': isValidRouteList
+      },
+      'getStops': {
+         topic: function () { return rutgers.getStops(); },
+         'valid return': isValidStopList
       },
 
       'stopPredict' : {/*
