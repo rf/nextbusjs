@@ -3,13 +3,15 @@
   "name": "nextbusjs",
   "description": "nextbus api wrapper",
   "main"    : "lib/index",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "url": "git://github.com/russfrank/nextbusjs.git"
   },
   "engines": {
-    "node": "~v0.4.10"
+    "node": "> 0.4.10"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+       "request": "2.9.x"
+     , "jsdom": "0.2.x"
+  },
 }
