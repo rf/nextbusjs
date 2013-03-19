@@ -97,9 +97,6 @@ var isProperlySorted = function (agency, route) {
     if (data.length !== check.length) 
       throw new Error("incorrect length of returned stop predict data");
 
-    console.dir(_.pluck(data, 'title'));
-    console.dir(check);
-
     var i = 0;
     for (i = 0; i < data.length; i++) {
       if (data[i].title !== check[i])
