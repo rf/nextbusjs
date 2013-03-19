@@ -80,9 +80,38 @@ var isValidVehicleLocations = function (err, data) {
          assert.match(vehicle.since, /[0-9]*/);
          assert.isBoolean(vehicle.predictable);
          assert.match(vehicle.heading, /[0-9]*/);
-         assert.match(vehicle.speed, /-?[0-9]*\.[0-9]*/);
+         assert.match(vehicle.speed, /-?[0-9]*\.?[0-9]*/);
       });
    });
+};
+
+// Takes a list of stops and returns a function which will verify that the data
+// is sorted in the correct order given some set of agency data.
+// of predictions.
+var isProperlySorted = function (agency, route) {
+  return function (err, data) {
+    if (err) throw err;
+    var agencyData = agency.getAgencyCache();
+    var check = tagsToTitles(agencyData.routes[route].stops, agencyData);
+
+    if (data.length !== check.length) 
+      throw new Error("incorrect length of returned stop predict data");
+
+    console.dir(_.pluck(data, 'title'));
+    console.dir(check);
+
+    var i = 0;
+    for (i = 0; i < data.length; i++) {
+      if (data[i].title !== check[i])
+        throw new Error("incorrect ordering of returned stop predict data");
+    }
+  };
+};
+
+var tagsToTitles = function (tags, agencyData) {
+  return _.map(tags, function (tag) {
+    return agencyData.stops[tag].title;
+  });
 };
 
 suite.addBatch({
@@ -90,20 +119,6 @@ suite.addBatch({
       topic    : function () { invalidnb.routePredict('bus', null, this.callback); },
       'routePredict: correct error handling' : function (err, data) {
          assert.isNotNull(err);
-      }
-   },
-
-   'downtown connection' : {
-      topic    : function () { dtconn.cacheAgency('da', this.callback); },
-      'doesnt break' : function (topic) {
-         assert.isObject(topic);
-      },
-
-      'routePredict dtconn' : {
-         topic    : function () {
-            dtconn.routePredict('dtconn', 'bpc', this.callback);
-         },
-         'valid return' : isValidPredictions
       }
    },
 
@@ -131,7 +146,8 @@ suite.addBatch({
 
          'wknd1'    : {
             topic    : function () { rutgers.routePredict('wknd1', null, this.callback); },
-            'valid return value' : isValidPredictions
+            'valid return value' : isValidPredictions,
+            'correct sort order': isProperlySorted(rutgers, 'wknd1')
          },
 
          'wknd2, both mins & seconds'    : {
