@@ -7,7 +7,7 @@ Appcelerator Titanium and Node.JS.
 First `npm install nextbusjs`.  Then:
 
 ````javascript
-    var rutgers = require('nextbusjs').Client();
+    var rutgers = require('nextbusjs').client();
     rutgers.cacheAgency('rutgers', function (err) {
        if (err) {
           throw err;
