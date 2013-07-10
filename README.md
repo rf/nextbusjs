@@ -1,6 +1,8 @@
 nextbus.js
 ==========
 
+[![build status](https://secure.travis-ci.org/russfrank/nextbusjs.png)](http://travis-ci.org/russfrank/nextbusjs)
+
 A reasonable interface to nextbus written in Javascript, targeting both
 Appcelerator Titanium and Node.JS.
 
