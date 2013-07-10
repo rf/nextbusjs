@@ -39,7 +39,7 @@ function isValidRouteList (err, data) {
       assert.isString(val.tag);
       assert.isString(val.title);
    });
-   console.dir(data);
+   //console.dir(data);
 }
 
 function isValidStopList (err,data) {
@@ -48,7 +48,7 @@ function isValidStopList (err,data) {
       assert.isString(val.geoHash);
       assert.isString(val.title);
    });
-   console.dir(data);
+   //console.dir(data);
 }
 
 suite.addBatch({
@@ -72,7 +72,7 @@ suite.addBatch({
                assert.isString(val.geoHash);
                assert.isString(val.title);
             });
-            console.dir(data);
+            //console.dir(data);
          }
       },
       'getRoutes': {
