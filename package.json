@@ -3,6 +3,9 @@
   "name": "nextbusjs",
   "description": "nextbus api wrapper",
   "main"    : "lib/index",
+  "scripts": {
+    "test": "vows --spec ./test/*.js"
+  },
   "version": "0.0.1",
   "license": "MIT",
   "homepage": "http://github.com/russfrank/nextbusjs",
