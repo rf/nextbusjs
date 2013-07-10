@@ -6,17 +6,20 @@
   "scripts": {
     "test": "vows --spec ./test/*.js"
   },
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "homepage": "http://github.com/russfrank/nextbusjs",
   "repository": {
     "url": "git://github.com/russfrank/nextbusjs.git"
   },
   "engines": {
-    "node": "> 0.4.10"
+    "node": "0.10.x"
+  },
+  "devDependencies": {
+     "vows": "*"
   },
   "dependencies": {
      "request": "2.9.x",
-     "jsdom": "0.2.x"
+     "jsdom": "0.7.x"
   }
 }
