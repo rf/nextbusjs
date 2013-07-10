@@ -19,7 +19,8 @@
     "node": "0.10.x"
   },
   "devDependencies": {
-     "vows": "*"
+     "vows": "*",
+     "JSV": "*"
   },
   "dependencies": {
      "request": "2.9.x",
