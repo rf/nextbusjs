@@ -41,7 +41,8 @@ var isValidPredictions = function (err, data) {
    var item;
    //console.log(JSON.stringify(data, false, 2));
    if (err) {
-      throw err;
+      // 0 predictions can happen
+      if (err.message != "response is invalid, data.length = 0") throw err;
    }
    if (data) {
       assert.isArray(data);
@@ -80,7 +81,7 @@ var isValidVehicleLocations = function (err, data) {
          assert.match(vehicle.since, /[0-9]*/);
          assert.isBoolean(vehicle.predictable);
          assert.match(vehicle.heading, /[0-9]*/);
-         assert.match(vehicle.speed, /-?[0-9]*\.[0-9]*/);
+         assert.match(vehicle.speed, /-?[0-9]*(\.[0-9]*)?/);
       });
    });
 };
