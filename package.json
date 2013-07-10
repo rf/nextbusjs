@@ -12,6 +12,9 @@
   "repository": {
     "url": "git://github.com/russfrank/nextbusjs.git"
   },
+  "scripts": {
+    "test": "vows --spec test/*.js"
+  },
   "engines": {
     "node": "0.10.x"
   },
