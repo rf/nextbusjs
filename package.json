@@ -20,7 +20,9 @@
   },
   "devDependencies": {
      "vows": "*",
-     "JSV": "*"
+     "JSV": "*",
+     "async": "*",
+     "underscore": "*"
   },
   "dependencies": {
      "request": "2.9.x",
