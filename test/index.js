@@ -96,7 +96,7 @@ var isProperlySorted = function (agency, route) {
     var check = tagsToTitles(agencyData.routes[route].stops, agencyData);
 
     if (data.length !== check.length) 
-      throw new Error("incorrect length of returned stop predict data");
+      throw new Error("incorrect length of returned stop predict data. length is " + data.length + "; should be " + check.length);
 
     var i = 0;
     for (i = 0; i < data.length; i++) {
