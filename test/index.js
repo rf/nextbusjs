@@ -131,6 +131,10 @@ suite.addBatch({
          assert.isObject(topic);
       },
 
+      'wknd1 > 8 stops' : function (topic) {
+         assert(topic.routes.wknd1.stops.length > 8);
+      },
+
       'routePredict' : {
          'a'    : {
             topic    : function () { rutgers.routePredict('a', null, this.callback); },
