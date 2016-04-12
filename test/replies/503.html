@@ -1,0 +1,20 @@
+<html>
+<!-- This file is displayed when there is an internal server error (error 500)
+     which happens when apache is running but Tomcat is not.  This is important
+     because Tomcat takes several seconds to start being able to handle
+     messages.  The idea is that this file displays something not
+     so scary (instead of Internal Server Error) and then automatically
+     does a refresh in 5 seconds to try to load in the page again.  This
+     way the user doesn't have to do anything.  Don't want to do it too
+	 often because that would prevent the user from typing in another url.
+ -->
+
+<head>
+<title>NextBus - Please wait...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="refresh" content="5">
+</head>
+<font face="Arial, Helvetica, sans-serif" size="2">Please wait...
+</font>
+</body>
+</html>
