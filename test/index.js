@@ -208,9 +208,9 @@ suite.addBatch({
             'valid return value' : isValidPredictions
          },
          
-         'Rutgers Student Center' : {
+         'College Avenue Student Center' : {
             topic    : function () {
-               rutgers.stopPredict('Rutgers Student Center', null, this.callback);
+               rutgers.stopPredict('College Avenue Student Center', null, this.callback);
             },
             'valid return value' : isValidPredictions
          },
@@ -234,12 +234,13 @@ suite.addBatch({
             }
          },
 
-         'to au bon pain' : {
+         'to au bon pain' : { //I regret to inform you this is now a Panera.
             topic    : function () {
                return rutgers.closestStops(40.5026240, -74.4516850);
-            }, 
+            },
             'valid return' : function (topic) {
-               assert.isTrue('Rutgers Student Center' in topic);
+               //this has been renamed from the "Rutgers Student Center".
+               assert.isTrue('College Avenue Student Center' in topic);
             }
          }
       },
